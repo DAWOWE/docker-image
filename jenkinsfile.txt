@@ -3,9 +3,9 @@ pipeline {
 
   environment {
     DOCKERHUB_CREDENTIALS = 'dockerhub-creds'   // Jenkins credentials ID for Docker Hub
-    SSH_CREDENTIALS       = 'app-ssh-key'       // Jenkins SSH credential ID for app-server
+    SSH_CREDENTIALS       = 'app-ssh-server-key'       // Jenkins SSH credential ID for app-server
     DOCKER_IMAGE          = 'DAWOWE/docker-image' // change this
-    APP_HOST              = 'ec2-user@34.227.100.235'      // change to app server
+    APP_HOST              = 'ec2-user@54.147.95.3'      // change to app server
     APP_PORT              = '3000'
   }
 
