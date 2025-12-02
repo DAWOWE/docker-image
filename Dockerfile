@@ -1,0 +1,15 @@
+# Stage 1: build (use node image)
+FROM node:18-alpine AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY . .
+
+# Stage 2: runtime (use smaller node base)
+FROM node:18-alpine
+WORKDIR /app
+COPY --from=build /app ./
+
+ENV NODE_ENV=production
+EXPOSE 3000
+CMD ["npm", "start"]
